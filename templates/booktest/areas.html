@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case</title>
+</head>
+<body>
+<h1>Current</h1>
+{{ area.atitle }}<br/>
+<h1>Parent</h1>
+{{ parent.atitle }}<br/>
+<h1>Children</h1>
+<ul>
+    {% for child in children %}
+        <li>{{ child.atitle }}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

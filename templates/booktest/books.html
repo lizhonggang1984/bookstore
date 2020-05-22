@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Information</title>
+</head>
+<body>
+<h2>
+    Current Bookshelf Infor:
+</h2>
+<a href="/create">Add Book</a>
+<ul>
+    {% for book in books %}
+        <li>
+            {{ book.btitle }} -------- <a href="/delete{{book.id}}"> Delete Book </a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

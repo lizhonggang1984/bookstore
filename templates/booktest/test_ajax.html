@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+    <script>
+        $(function(){
+            $('#one').click(function(){
+                $.ajax({
+                    'url': '/ajax_handle',
+                    'dataType': 'json'
+                    } ).success(function(data){
+                        if (data.res == 1){
+                            alert ("111");
+                            $('#message').show().html('hint')
+                        }
+                })
+                alert(3)
+            })
+        })
+    </script>
+    <style>
+
+        #message{
+            display:none;
+            color:red
+        }
+    </style>
+</head>
+
+<body>
+<h1> button </h1>
+
+<input type="button" id="one" value="ajax_request" >
+<div id="message"></div>
+</body>
+</html>

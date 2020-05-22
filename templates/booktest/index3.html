@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title3</title>
+
+    <style>
+        .red{
+            color: red;
+        }
+        .yellow{
+            color: yellow;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+dict is : {{ mydict.title}}
+
+<br>
+
+list is : {{ mylist.1 }}
+
+<br>
+
+book title is: {{ book.btitle }}
+
+<br>
+book infor
+<ul>
+    {% for b in books %}
+        {% if b.id > 2 %}
+        <li class="red"> {{ b.btitle }} </li>
+        {% else %}
+        <li class="yellow"> {{ b.btitle }} </li>
+        {% endif %}
+    {% endfor %}
+
+</ul>
+
+dict infor
+
+<ul>
+    {% for d in mydict %}
+    <li> {{ d.title }} :: {{ d.content }}</li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

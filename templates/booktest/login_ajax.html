@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script src="/static/js/jquery-1.12.4.min.js"></script>
+
+    <script>
+        $(function(){
+            $('#b').click(
+                function(){
+                    username = $('#username').val()
+                    password = $('#password').val()
+
+                    $.ajax({
+
+                        'url': '/login_ajax_check',
+                        'type': 'post',
+                        'data': {'username': username, 'password':password},
+                        'dataType': 'json'
+
+                    }).success(function(data){
+                        if (data.res == 0){
+                            $('#message').show().html('wrong username or password')
+                        }
+                        else{
+                            location.href= '/books'
+                        }
+                    })
+            }
+            )
+
+        })
+
+    </script>
+
+    <style>
+
+        #message{
+            display:none;
+            color:red
+        }
+    </style>
+</head>
+<body>
+<h1>User Login</h1>
+<h1>Welcome to Book Admin System</h1>
+<br>
+
+<div>
+username: <input type="text" id="username">
+password: <input type="text" id="password">
+<input type="button" id='b' value="Login">
+<br>
+    <div id="message"></div>
+
+</div>
+</body>
+</html>
