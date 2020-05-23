@@ -123,14 +123,14 @@ def login_ajax_check(request):
     else:
         return JsonResponse({'res': 0})
 
-# def set_cookie(request):
-#     response = HttpResponse('set up cookie')
-#     response.set_cookie('num',1,max_age=60*5)
-#     return response
-#
-# def get_cookie(request):
-#     num = request.COOKIES['num']
-#     return HttpResponse(num)
+def set_cookie(request):
+    response = HttpResponse('set up cookie')
+    response.set_cookie('num',1,max_age=60*5)
+    return response
+
+def get_cookie(request):
+    num = request.COOKIES['num']
+    return HttpResponse(num)
 
 # def set_session(request):
 #     request.session['username'] = 'python'
