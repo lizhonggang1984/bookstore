@@ -114,11 +114,14 @@ def login_ajax_check(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        remember = request.POST.get('remember')
     else:
         username = request.GET.get('username')
         password = request.GET.get('password')
+        remember = request.GET.get('remember')
 
     if username== 'python' and password == 'chuanzhi':
+
         return JsonResponse({'res': 1})
     else:
         return JsonResponse({'res': 0})
@@ -132,17 +135,17 @@ def get_cookie(request):
     num = request.COOKIES['num']
     return HttpResponse(num)
 
-# def set_session(request):
-#     request.session['username'] = 'python'
-#     request.session['age'] = 18
-#
-#     request.session.set_expiry(0) # expire for shutting down explorer
-#
-#     return HttpResponse('set up session')
-# def get_session(request):
-#     username = request.session.get('username',"username not setup")
-#     age = request.session.get('age',"age not setup")
-#     return HttpResponse(username + " : " + str(age))
+def set_session(request):
+    request.session['username'] = 'python'
+    request.session['age'] = 18
+
+    request.session.set_expiry(0) # expire for shutting down explorer
+
+    return HttpResponse('set up session')
+def get_session(request):
+    username = request.session.get('username',"username not setup")
+    age = request.session.get('age',"age not setup")
+    return HttpResponse(username + " : " + str(age))
 
 def child(request):
     return render(request, 'booktest/child.html')
